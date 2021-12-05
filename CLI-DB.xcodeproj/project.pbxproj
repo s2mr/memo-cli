@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		251D1FC7275B7607000F54B1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 251D1FC6275B7607000F54B1 /* SwiftPackageProductDependency */; };
-		25F58367275B74D3001D84E1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F58366275B74D3001D84E1 /* main.swift */; };
+		251D1FC7275B7607000F54B1 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 251D1FC6275B7607000F54B1 /* ArgumentParser */; };
+		2553D169275C8F410095408F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553D168275C8F410095408F /* App.swift */; };
+		2553D16B275C8FF80095408F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553D16A275C8FF80095408F /* Database.swift */; };
+		25F58367275B74D3001D84E1 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F58366275B74D3001D84E1 /* Command.swift */; };
 		E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +28,10 @@
 
 /* Begin PBXFileReference section */
 		06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLI-DB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2553D168275C8F410095408F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		2553D16A275C8FF80095408F /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		25F58363275B74D3001D84E1 /* CLI-DB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CLI-DB"; sourceTree = BUILT_PRODUCTS_DIR; };
-		25F58366275B74D3001D84E1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		25F58366275B74D3001D84E1 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.debug.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.debug.xcconfig"; sourceTree = "<group>"; };
 		7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.release.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251D1FC7275B7607000F54B1 /* BuildFile in Frameworks */,
+				251D1FC7275B7607000F54B1 /* ArgumentParser in Frameworks */,
 				E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,7 +70,9 @@
 		25F58365275B74D3001D84E1 /* CLI-DB */ = {
 			isa = PBXGroup;
 			children = (
-				25F58366275B74D3001D84E1 /* main.swift */,
+				25F58366275B74D3001D84E1 /* Command.swift */,
+				2553D168275C8F410095408F /* App.swift */,
+				2553D16A275C8FF80095408F /* Database.swift */,
 			);
 			path = "CLI-DB";
 			sourceTree = "<group>";
@@ -85,7 +91,6 @@
 				3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */,
 				7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,7 +112,7 @@
 			);
 			name = "CLI-DB";
 			packageProductDependencies = (
-				251D1FC6275B7607000F54B1 /* SwiftPackageProductDependency */,
+				251D1FC6275B7607000F54B1 /* ArgumentParser */,
 			);
 			productName = "CLI-DB";
 			productReference = 25F58363275B74D3001D84E1 /* CLI-DB */;
@@ -137,7 +142,7 @@
 			);
 			mainGroup = 25F5835A275B74D3001D84E1;
 			packageReferences = (
-				251D1FC5275B7607000F54B1 /* RemoteSwiftPackageReference */,
+				251D1FC5275B7607000F54B1 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			productRefGroup = 25F58364275B74D3001D84E1 /* Products */;
 			projectDirPath = "";
@@ -178,7 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25F58367275B74D3001D84E1 /* main.swift in Sources */,
+				2553D169275C8F410095408F /* App.swift in Sources */,
+				25F58367275B74D3001D84E1 /* Command.swift in Sources */,
+				2553D16B275C8FF80095408F /* Database.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +355,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		251D1FC5275B7607000F54B1 /* RemoteSwiftPackageReference */ = {
+		251D1FC5275B7607000F54B1 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser";
 			requirement = {
@@ -359,9 +366,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		251D1FC6275B7607000F54B1 /* SwiftPackageProductDependency */ = {
+		251D1FC6275B7607000F54B1 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 251D1FC5275B7607000F54B1 /* RemoteSwiftPackageReference */;
+			package = 251D1FC5275B7607000F54B1 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
 		};
 /* End XCSwiftPackageProductDependency section */
