@@ -10,6 +10,7 @@
 		251D1FC7275B7607000F54B1 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 251D1FC6275B7607000F54B1 /* ArgumentParser */; };
 		2553D169275C8F410095408F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553D168275C8F410095408F /* App.swift */; };
 		2553D16B275C8FF80095408F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553D16A275C8FF80095408F /* Database.swift */; };
+		2553D16D275D19F20095408F /* StderrOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553D16C275D19F20095408F /* StderrOutputStream.swift */; };
 		25F58367275B74D3001D84E1 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F58366275B74D3001D84E1 /* Command.swift */; };
 		E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLI-DB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2553D168275C8F410095408F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2553D16A275C8FF80095408F /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		2553D16C275D19F20095408F /* StderrOutputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StderrOutputStream.swift; sourceTree = "<group>"; };
 		25F58363275B74D3001D84E1 /* CLI-DB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CLI-DB"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F58366275B74D3001D84E1 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.debug.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				25F58366275B74D3001D84E1 /* Command.swift */,
 				2553D168275C8F410095408F /* App.swift */,
+				2553D16C275D19F20095408F /* StderrOutputStream.swift */,
 				2553D16A275C8FF80095408F /* Database.swift */,
 			);
 			path = "CLI-DB";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2553D16D275D19F20095408F /* StderrOutputStream.swift in Sources */,
 				2553D169275C8F410095408F /* App.swift in Sources */,
 				25F58367275B74D3001D84E1 /* Command.swift in Sources */,
 				2553D16B275C8FF80095408F /* Database.swift in Sources */,
