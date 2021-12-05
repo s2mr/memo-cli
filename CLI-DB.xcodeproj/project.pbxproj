@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251D1FC7275B7607000F54B1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 251D1FC6275B7607000F54B1 /* SwiftPackageProductDependency */; };
 		25F58367275B74D3001D84E1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F58366275B74D3001D84E1 /* main.swift */; };
+		E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLI-DB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F58363275B74D3001D84E1 /* CLI-DB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CLI-DB"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F58366275B74D3001D84E1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.debug.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.debug.xcconfig"; sourceTree = "<group>"; };
+		7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.release.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251D1FC7275B7607000F54B1 /* BuildFile in Frameworks */,
+				E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +50,8 @@
 			children = (
 				25F58365275B74D3001D84E1 /* CLI-DB */,
 				25F58364275B74D3001D84E1 /* Products */,
+				B06C0596C3BC02F56B144B0B /* Pods */,
+				996E0D00CB19A5D5CA697431 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +71,24 @@
 			path = "CLI-DB";
 			sourceTree = "<group>";
 		};
+		996E0D00CB19A5D5CA697431 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B06C0596C3BC02F56B144B0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */,
+				7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -69,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25F5836A275B74D3001D84E1 /* Build configuration list for PBXNativeTarget "CLI-DB" */;
 			buildPhases = (
+				CC85DCFB2BCC45F67721DA11 /* [CP] Check Pods Manifest.lock */,
 				25F5835F275B74D3001D84E1 /* Sources */,
 				25F58360275B74D3001D84E1 /* Frameworks */,
 				25F58361275B74D3001D84E1 /* CopyFiles */,
@@ -78,6 +106,9 @@
 			dependencies = (
 			);
 			name = "CLI-DB";
+			packageProductDependencies = (
+				251D1FC6275B7607000F54B1 /* SwiftPackageProductDependency */,
+			);
 			productName = "CLI-DB";
 			productReference = 25F58363275B74D3001D84E1 /* CLI-DB */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +136,9 @@
 				Base,
 			);
 			mainGroup = 25F5835A275B74D3001D84E1;
+			packageReferences = (
+				251D1FC5275B7607000F54B1 /* RemoteSwiftPackageReference */,
+			);
 			productRefGroup = 25F58364275B74D3001D84E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -113,6 +147,31 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CC85DCFB2BCC45F67721DA11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CLI-DB-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25F5835F275B74D3001D84E1 /* Sources */ = {
@@ -243,6 +302,7 @@
 		};
 		25F5836B275B74D3001D84E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKM4VSA3YF;
@@ -254,6 +314,7 @@
 		};
 		25F5836C275B74D3001D84E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKM4VSA3YF;
@@ -285,6 +346,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		251D1FC5275B7607000F54B1 /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		251D1FC6275B7607000F54B1 /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 251D1FC5275B7607000F54B1 /* RemoteSwiftPackageReference */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 25F5835B275B74D3001D84E1 /* Project object */;
 }
