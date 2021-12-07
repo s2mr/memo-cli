@@ -13,7 +13,6 @@ final class Database {
     }
 
     func configure() throws {
-        // 2. Define the database schema
         try dbQueue.write { db in
             try? db.create(table: "text") { t in
                 t.autoIncrementedPrimaryKey("id")
