@@ -5,21 +5,33 @@ import GRDB
 struct DB: ParsableCommand {
     static var configuration = CommandConfiguration(
         subcommands: [
+            Show.self,
             List.self,
             Insert.self,
-            Delete.self,
+            Remove.self,
+            Drop.self,
+            ForwardingCommand<Show>.self,
             ForwardingCommand<List>.self,
             ForwardingCommand<Insert>.self,
-            ForwardingCommand<Delete>.self
+            ForwardingCommand<Remove>.self,
+            ForwardingCommand<Drop>.self
         ],
         defaultSubcommand: List.self
     )
 }
 
+let pipeValue = FileHandle.standardInput.getStringFromPipe()
+
 extension DB {
     struct Insert: ParsableCommand {
-        @Argument
+        @Argument(wrappedValue: pipeValue ?? "")
         var text: String
+
+        func validate() throws {
+            if text.isEmpty {
+                throw NSError(domain: "text must not be empty", code: -1)
+            }
+        }
 
         func run() throws {
             let db = try Database()
@@ -27,13 +39,15 @@ extension DB {
         }
     }
 
-    struct Delete: ParsableCommand {
+    struct Remove: ParsableCommand {
         @Argument
         var id: Int64
 
         func run() throws {
             let db = try Database()
+            guard let text = try db.get(id: id) else { return }
             try db.delete(id: id)
+            print("[Deleted]", text.text)
         }
     }
 
@@ -44,9 +58,35 @@ extension DB {
             guard texts.count > .zero else {
                 return print("No entry.")
             }
-            texts.forEach {
-                print("\($0.id ?? 0): \($0.text)")
+            texts.forEach { text in
+                var value = String(text.text.prefix(100))
+                if text.text.count > 100 {
+                    value.append(" " + "  More  ".colored(.green, style: .bold))
+                }
+                print("\(text.id ?? 0): \(value)")
             }
+        }
+    }
+
+    struct Show: ParsableCommand {
+        @Argument
+        var id: Int64
+
+        func run() throws {
+            let db = try Database()
+            let text = try db.get(id: id)
+            if let text = text {
+                print("\(text.id ?? 0): \(text.text)")
+            }
+        }
+    }
+
+    struct Drop: ParsableCommand {
+        func run() throws {
+            let db = try Database()
+            guard let last = try db.list().last else { return }
+            try db.delete(id: last.id!)
+            print("[Deleted]", last.id!, last.text)
         }
     }
 }

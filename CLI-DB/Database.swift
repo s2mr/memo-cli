@@ -21,6 +21,12 @@ final class Database {
         }
     }
 
+    func get(id: Int64) throws -> Text? {
+        try dbQueue.read { db in
+            try Text.fetchOne(db, key: id)
+        }
+    }
+
     func list() throws -> [Text] {
         try dbQueue.read { db in
             try Text.fetchAll(db)
