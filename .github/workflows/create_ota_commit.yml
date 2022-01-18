@@ -17,8 +17,8 @@ jobs:
           echo $(git branch)
           # git commit --allow-empty -m "[ota]"
 
-      - uses: actions/github-script@v5.1.0
       - name: Add reaction
+        uses: actions/github-script@v5.1.0
         with:
           script: |
             await github.reactions.createForIssueComment({
