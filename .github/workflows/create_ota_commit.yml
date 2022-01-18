@@ -9,6 +9,10 @@ jobs:
     if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/ota')
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Add reaction
         uses: actions/github-script@v5.1.0
         with:
