@@ -1,0 +1,28 @@
+name: Create ota commit
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test-job1:
+    name: test job 1
+    if: startsWith(github.event.comment.body, '/ota')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Create ota commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          echo $(git branch)
+          # git commit --allow-empty -m "[ota]"
+
+      - uses: actions/github-script@v5.1.0
+      - name: Add reaction
+        run: |
+            await github.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: "rocket",
+            });
