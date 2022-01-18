@@ -21,6 +21,7 @@ jobs:
             });
       - uses: actions/checkout@v2.4.0
         with:
+          fetch-depth: 0
           ref: ${{ github.event.issue.pull_request.head.sha }}
       - name: Create ota commit
         run: |
