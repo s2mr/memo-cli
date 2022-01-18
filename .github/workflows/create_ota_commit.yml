@@ -9,6 +9,16 @@ jobs:
     if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/ota')
     runs-on: ubuntu-latest
     steps:
+      - name: Add reaction
+        uses: actions/github-script@v5.1.0
+        with:
+          script: |
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: "rocket",
+            });
       - uses: actions/checkout@v2.4.0
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -18,14 +28,3 @@ jobs:
           git config user.email github-actions@github.com
           git commit --allow-empty -m "[ota]"
           git push
-
-      - name: Add reaction
-        uses: actions/github-script@v5.1.0
-        with:
-          script: |
-            await github.rest.reactions.createForIssueComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id,
-              content: "+1",
-            });
