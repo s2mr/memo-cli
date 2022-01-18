@@ -17,10 +17,11 @@ jobs:
           echo $(git branch)
           # git commit --allow-empty -m "[ota]"
 
-      - uses: actions/github-script@v5.1.0
       - name: Add reaction
-        run: |
-            await github.reactions.createForIssueComment({
+        uses: actions/github-script@v5.1.0
+        with:
+          script: |
+            await github.rest.reactions.createForIssueComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               comment_id: context.payload.comment.id,
