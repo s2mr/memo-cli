@@ -9,32 +9,8 @@ jobs:
     if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/ota')
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJSON(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJSON(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJSON(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
       - name: Add reaction
-        uses: actions/github-script@v5.1.0
+        uses: actions/github-script@v5
         with:
           script: |
             await github.rest.reactions.createForIssueComment({
@@ -43,15 +19,24 @@ jobs:
               comment_id: context.payload.comment.id,
               content: "rocket",
             });
-      - uses: actions/checkout@v2.4.0
+
+      - name: get upstream branch
+        id: upstreambranch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::set-output name=branchname::$(curl -H "Authorization: token ${GITHUB_TOKEN}" ${{ github.event.issue.pull_request.url }} | jq '.head.ref' | sed 's/\"//g')"
+
+      - name: Checkout upstream repo
+        uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          ref: ${{ steps.upstreambranch.outputs.branchname }}
+
       - name: Checkout
         run: git checkout
       - name: Create ota commit
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git checkout ${{ github.head_ref }}
           git commit --allow-empty -m "[ota]"
           git push
