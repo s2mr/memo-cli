@@ -24,8 +24,8 @@ jobs:
           fetch-depth: 0
       - name: Create ota commit
         run: |
-          git checkout ${{ github.event.issue.pull_request.head.ref }}
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git checkout ${{ github.event.issue.pull_request.head.ref }}
           git commit --allow-empty -m "[ota]"
           git push
