@@ -1,6 +1,7 @@
 import Foundation
 
 extension FileHandle {
+    /// - Workaround: get string value from pipe input
     func getStringFromPipe() -> String? {
         var input: Data?
         FileHandle.standardInput.readabilityHandler = { a in
