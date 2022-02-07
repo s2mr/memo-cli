@@ -11,4 +11,3 @@ struct App {
         Memo.main()
     }
 }
-

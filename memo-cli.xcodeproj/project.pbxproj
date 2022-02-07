@@ -14,7 +14,7 @@
 		256D46092767B7B4005CEC10 /* String+Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D46082767B7B4005CEC10 /* String+Console.swift */; };
 		256D460B2767B95C005CEC10 /* FileHandle+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D460A2767B95C005CEC10 /* FileHandle+Utility.swift */; };
 		25F58367275B74D3001D84E1 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F58366275B74D3001D84E1 /* Command.swift */; };
-		E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */; };
+		F0E6C0A3B47D7D10E143EA39 /* libPods-memo-cli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9F8A1F1390E68B6546AC1F /* libPods-memo-cli.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,16 +30,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLI-DB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2553D168275C8F410095408F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2553D16A275C8FF80095408F /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		2553D16C275D19F20095408F /* StderrOutputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StderrOutputStream.swift; sourceTree = "<group>"; };
 		256D46082767B7B4005CEC10 /* String+Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Console.swift"; sourceTree = "<group>"; };
 		256D460A2767B95C005CEC10 /* FileHandle+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileHandle+Utility.swift"; sourceTree = "<group>"; };
-		25F58363275B74D3001D84E1 /* CLI-DB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CLI-DB"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25F58363275B74D3001D84E1 /* memo-cli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "memo-cli"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F58366275B74D3001D84E1 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.debug.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.debug.xcconfig"; sourceTree = "<group>"; };
 		7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLI-DB.release.xcconfig"; path = "Target Support Files/Pods-CLI-DB/Pods-CLI-DB.release.xcconfig"; sourceTree = "<group>"; };
+		8E9F8A1F1390E68B6546AC1F /* libPods-memo-cli.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memo-cli.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E485AE693025FD5764F7DC0 /* Pods-memo-cli.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo-cli.release.xcconfig"; path = "Target Support Files/Pods-memo-cli/Pods-memo-cli.release.xcconfig"; sourceTree = "<group>"; };
+		FD679DCE0EED237A6458D9B7 /* Pods-memo-cli.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo-cli.debug.xcconfig"; path = "Target Support Files/Pods-memo-cli/Pods-memo-cli.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				251D1FC7275B7607000F54B1 /* ArgumentParser in Frameworks */,
-				E3D87A7467485ABAF6078A44 /* libPods-CLI-DB.a in Frameworks */,
+				F0E6C0A3B47D7D10E143EA39 /* libPods-memo-cli.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +60,7 @@
 		25F5835A275B74D3001D84E1 = {
 			isa = PBXGroup;
 			children = (
-				25F58365275B74D3001D84E1 /* CLI-DB */,
+				25F58365275B74D3001D84E1 /* memo-cli */,
 				25F58364275B74D3001D84E1 /* Products */,
 				B06C0596C3BC02F56B144B0B /* Pods */,
 				996E0D00CB19A5D5CA697431 /* Frameworks */,
@@ -68,12 +70,12 @@
 		25F58364275B74D3001D84E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25F58363275B74D3001D84E1 /* CLI-DB */,
+				25F58363275B74D3001D84E1 /* memo-cli */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		25F58365275B74D3001D84E1 /* CLI-DB */ = {
+		25F58365275B74D3001D84E1 /* memo-cli */ = {
 			isa = PBXGroup;
 			children = (
 				256D46082767B7B4005CEC10 /* String+Console.swift */,
@@ -83,13 +85,13 @@
 				2553D16A275C8FF80095408F /* Database.swift */,
 				256D460A2767B95C005CEC10 /* FileHandle+Utility.swift */,
 			);
-			path = "CLI-DB";
+			path = "memo-cli";
 			sourceTree = "<group>";
 		};
 		996E0D00CB19A5D5CA697431 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				06F86DD3D99BABE0CE274A74 /* libPods-CLI-DB.a */,
+				8E9F8A1F1390E68B6546AC1F /* libPods-memo-cli.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,6 +101,8 @@
 			children = (
 				3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */,
 				7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */,
+				FD679DCE0EED237A6458D9B7 /* Pods-memo-cli.debug.xcconfig */,
+				9E485AE693025FD5764F7DC0 /* Pods-memo-cli.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -106,9 +110,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		25F58362275B74D3001D84E1 /* CLI-DB */ = {
+		25F58362275B74D3001D84E1 /* memo-cli */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 25F5836A275B74D3001D84E1 /* Build configuration list for PBXNativeTarget "CLI-DB" */;
+			buildConfigurationList = 25F5836A275B74D3001D84E1 /* Build configuration list for PBXNativeTarget "memo-cli" */;
 			buildPhases = (
 				CC85DCFB2BCC45F67721DA11 /* [CP] Check Pods Manifest.lock */,
 				25F5835F275B74D3001D84E1 /* Sources */,
@@ -119,12 +123,12 @@
 			);
 			dependencies = (
 			);
-			name = "CLI-DB";
+			name = "memo-cli";
 			packageProductDependencies = (
 				251D1FC6275B7607000F54B1 /* ArgumentParser */,
 			);
 			productName = "CLI-DB";
-			productReference = 25F58363275B74D3001D84E1 /* CLI-DB */;
+			productReference = 25F58363275B74D3001D84E1 /* memo-cli */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -141,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 25F5835E275B74D3001D84E1 /* Build configuration list for PBXProject "CLI-DB" */;
+			buildConfigurationList = 25F5835E275B74D3001D84E1 /* Build configuration list for PBXProject "memo-cli" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -157,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				25F58362275B74D3001D84E1 /* CLI-DB */,
+				25F58362275B74D3001D84E1 /* memo-cli */,
 			);
 		};
 /* End PBXProject section */
@@ -178,7 +182,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CLI-DB-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-memo-cli-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -321,7 +325,7 @@
 		};
 		25F5836B275B74D3001D84E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F1A873545A848DE957DCBE5 /* Pods-CLI-DB.debug.xcconfig */;
+			baseConfigurationReference = FD679DCE0EED237A6458D9B7 /* Pods-memo-cli.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKM4VSA3YF;
@@ -333,7 +337,7 @@
 		};
 		25F5836C275B74D3001D84E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DA9479E6AEBD63E5047CBB3 /* Pods-CLI-DB.release.xcconfig */;
+			baseConfigurationReference = 9E485AE693025FD5764F7DC0 /* Pods-memo-cli.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKM4VSA3YF;
@@ -346,7 +350,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		25F5835E275B74D3001D84E1 /* Build configuration list for PBXProject "CLI-DB" */ = {
+		25F5835E275B74D3001D84E1 /* Build configuration list for PBXProject "memo-cli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				25F58368275B74D3001D84E1 /* Debug */,
@@ -355,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		25F5836A275B74D3001D84E1 /* Build configuration list for PBXNativeTarget "CLI-DB" */ = {
+		25F5836A275B74D3001D84E1 /* Build configuration list for PBXNativeTarget "memo-cli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				25F5836B275B74D3001D84E1 /* Debug */,
