@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1250"
+   LastUpgradeVersion = "1320"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "25F58362275B74D3001D84E1"
-               BuildableName = "CLI-DB"
-               BlueprintName = "CLI-DB"
-               ReferencedContainer = "container:CLI-DB.xcodeproj">
+               BuildableName = "memo-cli"
+               BlueprintName = "memo-cli"
+               ReferencedContainer = "container:memo-cli.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,25 +45,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25F58362275B74D3001D84E1"
-            BuildableName = "CLI-DB"
-            BlueprintName = "CLI-DB"
-            ReferencedContainer = "container:CLI-DB.xcodeproj">
+            BuildableName = "memo-cli"
+            BlueprintName = "memo-cli"
+            ReferencedContainer = "container:memo-cli.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "list"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "insert"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-h"
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -76,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25F58362275B74D3001D84E1"
-            BuildableName = "CLI-DB"
-            BlueprintName = "CLI-DB"
-            ReferencedContainer = "container:CLI-DB.xcodeproj">
+            BuildableName = "memo-cli"
+            BlueprintName = "memo-cli"
+            ReferencedContainer = "container:memo-cli.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

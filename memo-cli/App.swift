@@ -8,7 +8,6 @@ struct App {
             print("Error!", to: &standardError)
         }
 
-        DB.main()
+        Memo.main()
     }
 }
-

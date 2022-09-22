@@ -2,7 +2,7 @@ import Foundation
 import ArgumentParser
 import GRDB
 
-struct DB: ParsableCommand {
+struct Memo: ParsableCommand {
     static var configuration = CommandConfiguration(
         subcommands: [
             Show.self,
@@ -22,7 +22,7 @@ struct DB: ParsableCommand {
 
 let pipeValue = FileHandle.standardInput.getStringFromPipe()
 
-extension DB {
+extension Memo {
     struct Insert: ParsableCommand {
         @Argument(wrappedValue: pipeValue ?? "")
         var text: String

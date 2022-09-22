@@ -1,28 +1,37 @@
-name: Create ota commit
+name: /ota
 on:
   issue_comment:
     types: [created]
 
 jobs:
-  test-job1:
-    name: test job 1
-    if: startsWith(github.event.comment.body, '/ota')
+  main:
+    name: Create ota commit
+    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/ota')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
-      - name: Create ota commit
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git commit --allow-empty -m "[ota]"
-
-      - name: Add reaction
-        uses: actions/github-script@v5.1.0
+      - name: Add reaction to comment
+        uses: actions/github-script@v5
         with:
           script: |
             await github.rest.reactions.createForIssueComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               comment_id: context.payload.comment.id,
-              content: "+1",
+              content: "rocket",
             });
+      - name: Get upstream branch
+        id: upstreambranch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::set-output name=branchname::$(curl -H "Authorization: token ${GITHUB_TOKEN}" ${{ github.event.issue.pull_request.url }} | jq '.head.ref' | sed 's/\"//g')"
+      - name: Checkout upstream branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.upstreambranch.outputs.branchname }}
+      - name: Create ota commit
+        run: |
+          git config user.name s2mr
+          git config user.email s2mr@users.noreply.github.com
+          git commit --allow-empty -m "[ota] ${{github.event.comment.body}}"
+          git push
