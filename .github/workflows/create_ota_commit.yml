@@ -31,7 +31,7 @@ jobs:
           ref: ${{ steps.upstreambranch.outputs.branchname }}
       - name: Create ota commit
         run: |
-          git config user.name hambot
-          git config user.email ca-love-dev@users.noreply.github.com
-          git commit --allow-empty -m "[ota]"
+          git config user.name s2mr
+          git config user.email s2mr@users.noreply.github.com
+          git commit --allow-empty -m "[ota] ${{github.event.comment.body}}"
           git push
