@@ -30,4 +30,4 @@ jobs:
         with:
           ref: ${{ steps.upstreambranch.outputs.branchname }}
       - name: Create ota commit
-        run: ./my-script.sh
+        run: ./Scripts/my-script.sh
