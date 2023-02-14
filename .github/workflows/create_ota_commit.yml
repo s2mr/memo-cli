@@ -34,4 +34,4 @@ jobs:
         run: ./Scripts/my-script.sh
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
-          PR_BRANCH: ${{ github.event.issue.pull_request.head.sha }}
+          PR_BRANCH: ${{ toJson(github.event.issue.pull_request) }}
