@@ -10,7 +10,9 @@ if [ "$TARGET_BRANCH" != "" ]
 then
     git pull
     git checkout "$TARGET_BRANCH"
+    git merge -m "[ota] Merge branch '$PR_BRANCH' into $TARGET_BRANCH" "$PR_BRANCH"
+else
+    git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}"
 fi
 
-git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}"
 git push
