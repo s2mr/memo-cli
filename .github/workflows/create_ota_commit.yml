@@ -32,3 +32,5 @@ jobs:
       - name: Create ota commit
         shell: bash
         run: ./Scripts/my-script.sh
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
