@@ -34,3 +34,4 @@ jobs:
         run: ./Scripts/my-script.sh
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
+          PR_BRANCH: ${{ github.head_ref }}
