@@ -13,7 +13,7 @@ git branch -a
 if [ "$TARGET_BRANCH" != "" ]
 then
     git fetch "$TARGET_BRANCH"
-    git checkout "$TARGET_BRANCH"
+    git checkout origin "$TARGET_BRANCH"
 fi
 
 git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}"
