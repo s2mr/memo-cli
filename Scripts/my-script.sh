@@ -5,7 +5,7 @@ git config user.email s2mr@users.noreply.github.com
 BODY=${github.event.comment.body}
 TARGET_BRANCH="$(echo "$BODY" | sed -e 's/\/ota --with \(.*\) .*/\1/g')"
 
-if [ "$TARGET_BRANCH" = "" ]
+if [ "$TARGET_BRANCH" != "" ]
 then
     git checkout "$TARGET_BRANCH"
 fi
