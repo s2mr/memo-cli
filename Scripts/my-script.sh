@@ -5,7 +5,11 @@ set -eu
 git config user.name s2mr
 git config user.email s2mr@users.noreply.github.com
 PR_BRANCH=$GITHUB_HEAD_REF
-echo $GITHUB_HEAD_REF
+
+echo "~~~"
+echo "$GITHUB_HEAD_REF"
+echo "~~~"
+
 TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --with \(.*\).*/\1/g')
 
 if [ "$TARGET_BRANCH" != "" ]
