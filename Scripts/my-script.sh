@@ -7,6 +7,7 @@ git config user.email s2mr@users.noreply.github.com
 TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --with \(.*\).*/\1/g')
 
 git remote -v
+git branch -a
 
 if [ "$TARGET_BRANCH" != "" ]
 then
