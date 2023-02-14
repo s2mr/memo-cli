@@ -31,3 +31,4 @@ jobs:
           ref: ${{ steps.upstreambranch.outputs.branchname }}
       - name: Create ota commit
         run: ./Scripts/my-script.sh
+        shell: bash
