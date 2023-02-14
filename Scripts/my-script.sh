@@ -2,8 +2,8 @@
 
 git config user.name s2mr
 git config user.email s2mr@users.noreply.github.com
-BODY="${github.event.comment.body}"
-TARGET_BRANCH="$(sed -e 's/\/ota --with \(.*\) .*/\1/g')"
+BODY=${github.event.comment.body}
+TARGET_BRANCH="$(echo "$BODY" | sed -e 's/\/ota --with \(.*\) .*/\1/g')"
 
 if [ "$TARGET_BRANCH" = "" ]
 then
