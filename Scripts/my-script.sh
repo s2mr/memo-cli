@@ -8,6 +8,8 @@ PR_BRANCH=$GITHUB_HEAD_REF
 
 echo "~~~"
 echo "$GITHUB_HEAD_REF"
+echo "$GITHUB_BASE_REF"
+echo "$GITHUB_SHA"
 echo "~~~"
 
 TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --with \(.*\).*/\1/g')
