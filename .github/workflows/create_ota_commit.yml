@@ -33,4 +33,8 @@ jobs:
         shell: bash
         run: ./Scripts/my-script.sh
         env:
+<<<<<<< HEAD
           COMMENT_BODY: ${{ github.event.comment.body }}
+=======
+          COMMENT_BODY: ${{ github.event.comment.body }}
+>>>>>>> 3112737a964d7ec37fa902b3627f75a16b5dce71
