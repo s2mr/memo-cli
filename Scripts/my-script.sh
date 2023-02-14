@@ -8,6 +8,7 @@ TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --with \(.*\).*/\1/g')
 
 if [ "$TARGET_BRANCH" != "" ]
 then
+    git fetch "$TARGET_BRANCH"
     git checkout "$TARGET_BRANCH"
 fi
 
