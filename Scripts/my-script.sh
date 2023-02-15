@@ -2,11 +2,7 @@
 
 set -u
 
-<<<<<<< Updated upstream
-git config user.name s2mr
-=======
 git config user.name 'Kazumasa Shimomura'
->>>>>>> Stashed changes
 git config user.email s2mr@users.noreply.github.com
 
 TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --into \(.*\).*/\1/g')
