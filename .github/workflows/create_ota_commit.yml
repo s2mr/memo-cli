@@ -24,15 +24,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "::set-output name=branchname::$(curl -H "Authorization: token ${GITHUB_TOKEN}" ${{ github.event.issue.pull_request.url }} | jq '.head.ref' | sed 's/\"//g')"
+          PR_HEAD_REF=$(curl -H "Authorization: token ${GITHUB_TOKEN}" ${{ github.event.issue.pull_request.url }} | jq '.head.ref' | sed 's/\"//g')
+          echo "PR_HEAD_REF=$PR_HEAD_REF" >> $GITHUB_OUTPUT
       - name: Checkout upstream branch
         uses: actions/checkout@v3
         with:
-          ref: ${{ steps.upstreambranch.outputs.branchname }}
+          ref: $PR_HEAD_REF
           fetch-depth: 0
       - name: Create ota commit
         shell: bash
         run: ./Scripts/my-script.sh
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
-          PR_BRANCH: ${{ steps.upstreambranch.outputs.branchname }}
+          PR_BRANCH: $PR_HEAD_REF
