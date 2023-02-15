@@ -2,23 +2,24 @@
 
 set -u
 
+function error_handler() {
+    echo "error=$(cat /tmp/Error)" >> "$GITHUB_OUTPUT"
+    exit 1
+}
+
+trap error_handler ERR
+
 git config user.name 'Kazumasa Shimomura'
 git config user.email s2mr@users.noreply.github.com
 
 TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --into \(.*\).*/\1/g')
 
 if [ "$TARGET_BRANCH" != "" ]; then
-    git pull
-    git checkout "$TARGET_BRANCH"
-
+    git pull 2> /tmp/Error
+    git checkout "$TARGET_BRANCH" 2> /tmp/Error
     git merge origin/"$PR_BRANCH" --no-ff 2> /tmp/Error
-
-    if [ "$(cat /tmp/Error)" != "" ]; then
-        echo "error=$(cat /tmp/Error)" >> "$GITHUB_OUTPUT"
-        exit 1
-    fi
 else
-    git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}"
+    git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}" 2> /tmp/Error
 fi
 
 git push
