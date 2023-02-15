@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add reaction to comment
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             await github.rest.reactions.createForIssueComment({
