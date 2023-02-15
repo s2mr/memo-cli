@@ -9,31 +9,44 @@ jobs:
     if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/ota')
     runs-on: ubuntu-latest
     steps:
-      - name: Add reaction to comment
-        uses: actions/github-script@v6
-        with:
-          script: |
-            await github.rest.reactions.createForIssueComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id,
-              content: "rocket",
-            });
       - name: Get upstream branch
         id: upstreambranch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_HEAD_REF=$(curl -H "Authorization: token ${GITHUB_TOKEN}" ${{ github.event.issue.pull_request.url }} | jq '.head.ref' | sed 's/\"//g')
-          echo "pr_head_ref=$PR_HEAD_REF" >> $GITHUB_OUTPUT
+          echo "pr_head_ref=$PR_HEAD_REF" >> "$GITHUB_OUTPUT"
       - name: Checkout upstream branch
         uses: actions/checkout@v3
         with:
           ref: ${{ steps.upstreambranch.outputs.pr_head_ref }}
           fetch-depth: 0
       - name: Create ota commit
+        id: createcommit
         shell: bash
         run: ./Scripts/my-script.sh
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
           PR_BRANCH: ${{ steps.upstreambranch.outputs.pr_head_ref }}
+      - name: Add reaction to comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log(context.payload)
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: "rocket",
+            });
+      - name: Post comment for failure
+        if: ${{ failure() }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 123,
+              body: "create ota commit is failed.",
+            });
