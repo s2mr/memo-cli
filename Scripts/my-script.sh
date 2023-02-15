@@ -11,7 +11,7 @@ if [ "$TARGET_BRANCH" != "" ]; then
     git pull
     git checkout "$TARGET_BRANCH"
 
-    git mmmmerge origin/"$PR_BRANCH" --no-ff 2> /tmp/Error
+    git merge origin/"$PR_BRANCH" --no-ff 2> /tmp/Error
 
     if [ "$(cat /tmp/Error)" != "" ]; then
         echo "error=$(cat /tmp/Error)" >> "$GITHUB_OUTPUT"
