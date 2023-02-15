@@ -47,6 +47,6 @@ jobs:
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: 123,
-              body: "create ota commit is failed.",
+              issue_number: context.payload.issue.number,
+              body: "Create ota commit is failed.\nReason: ${{ steps.createcommit.outputs.error }}",
             });
