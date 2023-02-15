@@ -11,7 +11,7 @@ if [ "$TARGET_BRANCH" != "" ]
 then
     git pull
     git checkout "$TARGET_BRANCH"
-    git merge origin/"$PR_BRANCH" -m "[ota] Merge branch '$PR_BRANCH' into $TARGET_BRANCH"
+    git pull origin "$PR_BRANCH" -m "[ota] Merge branch '$PR_BRANCH' into $TARGET_BRANCH"
 else
     git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}"
 fi
