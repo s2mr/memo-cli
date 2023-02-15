@@ -2,7 +2,11 @@
 
 set -u
 
+<<<<<<< Updated upstream
 git config user.name s2mr
+=======
+git config user.name 'Kazumasa Shimomura'
+>>>>>>> Stashed changes
 git config user.email s2mr@users.noreply.github.com
 
 TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --into \(.*\).*/\1/g')
@@ -14,6 +18,7 @@ if [ "$TARGET_BRANCH" != "" ]; then
 
     if [ "$(cat /tmp/Error)" != "" ]; then
         echo "error=$(cat /tmp/Error)" >> "$GITHUB_OUTPUT"
+        exit 1
     fi
 else
     git commit --allow-empty -m "[ota]${COMMENT_BODY##/ota}"
