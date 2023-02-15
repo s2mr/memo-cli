@@ -12,7 +12,7 @@ trap error_handler ERR
 git config user.name 'Kazumasa Shimomura'
 git config user.email s2mr@users.noreply.github.com
 
-TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed -e 's/\/ota --into \(.*\).*/\1/g')
+TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed 's/.*--into *\([^ ]*\).*/\1/')
 
 if [ "$TARGET_BRANCH" != "" ]; then
     git pull 2> /tmp/Error
