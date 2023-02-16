@@ -7,12 +7,12 @@ function error_handler() {
     exit 1
 }
 
-trap error_handler ERR
-
 git config user.name 'Kazumasa Shimomura'
 git config user.email s2mr@users.noreply.github.com
 
-TARGET_BRANCH=$(echo "$COMMENT_BODY" | sed 's/.*--into *\([^ ]*\).*/\1/')
+TARGET_BRANCH=$(expr "$COMMENT_BODY" : '.*--into \([^ ]*\)')
+
+trap error_handler ERR
 
 if [ "$TARGET_BRANCH" != "" ]; then
     git pull 2> /tmp/Error
