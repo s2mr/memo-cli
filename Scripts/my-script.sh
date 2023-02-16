@@ -10,6 +10,8 @@ function error_handler() {
 git config user.name 'Kazumasa Shimomura'
 git config user.email s2mr@users.noreply.github.com
 
+# 正規表現にマッチしない場合(e.g. --intoがない場合)はERRステータスになるので、
+# ERRのtrap はこれ以降で行う
 TARGET_BRANCH=$(expr "$COMMENT_BODY" : '.*--into \([^ ]*\)')
 
 trap error_handler ERR
